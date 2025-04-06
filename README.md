@@ -108,5 +108,8 @@ Training Progress
 ![PPO Training](ant_training_curve.png)
 
 Stable Ant
+
+
+
 ![Moving Ant](ant_sim.gif)
 
