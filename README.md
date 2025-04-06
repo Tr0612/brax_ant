@@ -105,6 +105,8 @@ Once properly wired up, this allowed me to simulate and render a stable Ant robo
 ![Multiple Ant](screenshot.png)
 
 Training Progress
+
+
 ![PPO Training](ant_training_curve.png)
 
 Stable Ant
