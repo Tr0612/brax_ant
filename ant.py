@@ -4,7 +4,7 @@ import numpy as np
 import time
 
 # Load the Ant model
-model = mujoco.MjModel.from_xml_path("replicated_robots.xml")  
+model = mujoco.MjModel.from_xml_path("ant.xml")  
 data = mujoco.MjData(model)
 
 # Launch the viewer
