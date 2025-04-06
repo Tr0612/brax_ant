@@ -7,6 +7,8 @@ import functools
 from brax import envs
 from brax.io import model as brax_model
 from brax.training.agents.ppo import train as ppo
+import imageio
+
 
 
 env = envs.get_environment(env_name='ant', backend='generalized')
@@ -24,6 +26,8 @@ jit_inference_fn = jax.jit(inference_fn)
 mj_model = mujoco.MjModel.from_xml_path("ant.xml")
 mj_data = mujoco.MjData(mj_model)
 rng = jax.random.PRNGKey(0)
+renderer = mujoco.Renderer(mj_model)
+frames = []
 
 
 with mujoco.viewer.launch_passive(mj_model, mj_data) as viewer:
@@ -40,5 +44,9 @@ with mujoco.viewer.launch_passive(mj_model, mj_data) as viewer:
         mj_data.ctrl[:] = np.asarray(action)
         # mj_data.ctrl[:] = np.array([1.0] * 8)
         mujoco.mj_step(mj_model, mj_data)
+        renderer.update_scene(mj_data)
+        frames.append(np.copy(renderer.render()))
         viewer.sync()
         # time.sleep(mj_model.opt.timestep)
+# renderer.free()
+imageio.mimsave("ant_sim.gif",frames,fps=30)
