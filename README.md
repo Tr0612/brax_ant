@@ -1,6 +1,6 @@
 # Brax-to-MuJoCo Ant PPO Pipeline
 
-This project implements a full pipeline to **train an Ant robot using PPO in Brax**, and then **control a real MuJoCo Ant robot using that trained policy**.
+This project implements a full pipeline to **train an Ant robot using PPO in Brax**, and then **control a real MuJoCo Ant robot using that trained policy**. `ant_sim.gif` shows simulation of ant robot after training.
 
 ---
 
@@ -105,9 +105,12 @@ Once properly wired up, this allowed me to simulate and render a stable Ant robo
 ![Multiple Ant](screenshot.png)
 
 Training Progress
+
+
 ![PPO Training](ant_training_curve.png)
 
 Stable Ant
+
 
 
 ![Moving Ant](ant_sim.gif)
